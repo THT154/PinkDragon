@@ -36,6 +36,7 @@ public class SupplierAccount extends javax.swing.JFrame {
         suppId = supplierDao.getSupplierID(SupplierDashboard.supplierEmail.getText());
         value = supplierDao.getSupplierValue(suppId);
         setValue();
+        jPasswordField1.setText(String.valueOf(Login.jPasswordField1.getPassword()));
     }
 
     public boolean isEmpty() {

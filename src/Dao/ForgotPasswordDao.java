@@ -64,10 +64,12 @@ public class ForgotPasswordDao {
 
     // Cập nhật mật khẩu mới
     public void setPassword(String email, String pass) {
+        String passwork = MD5.md5(pass);
+        
         String sql = "update user set upassword = ? where uemail = ?";
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, pass);
+            ps.setString(1, passwork);
             ps.setString(2, email);
             if (ps.executeUpdate() > 0) {
                 JOptionPane.showMessageDialog(null, "Mật khẩu đã được đổi thành công");

@@ -2,6 +2,8 @@
 package Dao;
 
 import connection.MyConnection;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -71,13 +73,14 @@ public class UserDao {
 
     // Thêm tài khoản
     public void insert(int id, String username, String email, String pass, String phone, String seq, String ans, String address1, String address2) {
+        String passwork = MD5.md5(pass);
         String sql = "insert into user values (?,?, ?, ?, ?, ?, ?, ?,?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.setString(2, username);
             ps.setString(3, email);
-            ps.setString(4, pass);
+            ps.setString(4, passwork);
             ps.setString(5, phone);
             ps.setString(6, seq);
             ps.setString(7, ans);
@@ -94,12 +97,14 @@ public class UserDao {
     }
 
     public void update(int id, String username, String email, String pass, String phone, String seq, String ans, String address1, String address2) {
+        String passwork = MD5.md5(pass);
+        
         String sql = "update user set uname = ?, uemail = ?,upassword = ?, uphone = ?, usecqus = ?, uans = ?, uaddress1 = ?, uaddress2 = ? where uid = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, email);
-            ps.setString(3, pass);
+            ps.setString(3, passwork);
             ps.setString(4, phone);
             ps.setString(5, seq);
             ps.setString(6, ans);
@@ -197,5 +202,7 @@ public class UserDao {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+   
 
 }

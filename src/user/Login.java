@@ -1,6 +1,6 @@
-
 package user;
 
+import Dao.MD5;
 import Supplier.SupplierDashboard;
 import admin.AdminDashboard;
 import connection.MyConnection;
@@ -13,14 +13,13 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.sql.Connection;
 import Dao.Statistics;
-/**
- *
- * @author nghia123
- */
+
 public class Login extends javax.swing.JFrame {
-    
+
     private ButtonGroup buttonGroup = new ButtonGroup();
     Statistics statistics = new Statistics();
+    
+
     /**
      * Creates new form Login
      */
@@ -192,7 +191,7 @@ public class Login extends javax.swing.JFrame {
 
         jCheckBox2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("Nhà cung cấp");
+        jCheckBox2.setText("Vận chuyển");
         jCheckBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,13 +347,14 @@ public class Login extends javax.swing.JFrame {
         if (isEmpty()) {
             String email = jTextField1.getText();
             String password = String.valueOf(jPasswordField1.getPassword());
+            String passToMD5 = MD5.md5(password);
             if (jCheckBox1.isSelected()) {
                 Connection con = MyConnection.getConnection();
                 try {
                     PreparedStatement ps;
                     ps = con.prepareStatement("SELECT * from admin where email =? and password =?");
                     ps.setString(1, email);
-                    ps.setString(2, password);
+                    ps.setString(2, passToMD5);
                     ResultSet rs = ps.executeQuery();
                     if (rs.next()) {
                         AdminDashboard ad = new AdminDashboard();
@@ -376,7 +376,7 @@ public class Login extends javax.swing.JFrame {
 
                     ps = con.prepareStatement("SELECT * from supplier where semail =? and spassword =?");
                     ps.setString(1, email);
-                    ps.setString(2, password);
+                    ps.setString(2, passToMD5);
                     ResultSet rs = ps.executeQuery();
                     if (rs.next()) {
                         SupplierDashboard sd = new SupplierDashboard();
@@ -398,7 +398,7 @@ public class Login extends javax.swing.JFrame {
 
                     ps = con.prepareStatement("SELECT * from user where uemail =? and upassword =?");
                     ps.setString(1, email);
-                    ps.setString(2, password);
+                    ps.setString(2, passToMD5);
                     ResultSet rs = ps.executeQuery();
                     if (rs.next()) {
                         UserDashboard ud = new UserDashboard();
@@ -510,7 +510,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
+    public static javax.swing.JPasswordField jPasswordField1;
     public static javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 

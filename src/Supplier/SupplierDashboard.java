@@ -58,9 +58,15 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -68,7 +74,6 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -224,15 +229,38 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
         jPanel12.setBackground(new java.awt.Color(0, 102, 102));
 
+        jPanel14.setBackground(new java.awt.Color(0, 102, 102));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 10, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel12Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel12Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel11.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
@@ -253,6 +281,41 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jPanel11.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 30));
 
         jPanel3.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 200, 30));
+
+        jPanel13.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel15.setBackground(new java.awt.Color(0, 102, 102));
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel13.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel22.setText("Report");
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
+        jPanel13.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 130, 30));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/report .png"))); // NOI18N
+        jPanel13.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 30));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/report .png"))); // NOI18N
+        jPanel13.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 30));
+
+        jPanel3.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 200, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 200, 770));
 
@@ -334,8 +397,9 @@ public class SupplierDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         int a = JOptionPane.showConfirmDialog(this, "bạn muốn đăng xuất ngay bây giờ?", "Logout", JOptionPane.YES_NO_OPTION);
         if (a == 0) {
-            new Login().setVisible(true);
             this.dispose();
+            new Login().setVisible(true);
+            
         }
     }//GEN-LAST:event_jLabel2MouseClicked
 
@@ -374,6 +438,19 @@ public class SupplierDashboard extends javax.swing.JFrame {
         supplierAccount.setVisible(true);
         supplierAccount.pack();
     }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        // TODO add your handling code here:
+        jPanel13.setBackground(selectioncolor);
+        jPanel15.setBackground(sideColor);
+        jLabel22.setForeground(textSelectioncolor);
+        jLabel20.setVisible(false);
+        jLabel17.setVisible(true);
+        SupplierReport supplierReport = new SupplierReport();
+        supplierReport.setVisible(true);
+        supplierReport.pack();
+        
+    }//GEN-LAST:event_jLabel22MouseClicked
 
     /**
      * @param args the command line arguments
@@ -419,10 +496,13 @@ public class SupplierDashboard extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel13;
     public static javax.swing.JLabel jLabel15;
     public static javax.swing.JLabel jLabel16;
+    public static javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     public static javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel20;
     public static javax.swing.JLabel jLabel21;
+    public static javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -431,6 +511,9 @@ public class SupplierDashboard extends javax.swing.JFrame {
     public static javax.swing.JPanel jPanel10;
     public static javax.swing.JPanel jPanel11;
     public static javax.swing.JPanel jPanel12;
+    public static javax.swing.JPanel jPanel13;
+    public static javax.swing.JPanel jPanel14;
+    public static javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

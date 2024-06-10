@@ -78,13 +78,15 @@ public class SupplierDao {
 
     // Thêm tài khoản
     public void insert(int id, String username, String email, String pass, String phone, String address1, String address2) {
+        String passwork = MD5.md5(pass);
+        
         String sql = "insert into supplier values ( ?, ?, ?, ?, ?, ?,?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.setString(2, username);
             ps.setString(3, email);
-            ps.setString(4, pass);
+            ps.setString(4, passwork);
             ps.setString(5, phone);
             ps.setString(6, address1);
             ps.setString(7, address2);
@@ -100,12 +102,14 @@ public class SupplierDao {
 
     // Cập nhật thông tin
     public void update(int id, String username, String email, String pass, String phone, String address1, String address2) {
+        String passwork = MD5.md5(pass);
+        
         String sql = "update supplier set sname = ?, semail = ?,spassword = ?, sphone = ?, saddress1 = ?, saddress2 = ? where sid = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, email);
-            ps.setString(3, pass);
+            ps.setString(3, passwork);
             ps.setString(4, phone);
             ps.setString(5, address1);
             ps.setString(6, address2);

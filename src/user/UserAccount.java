@@ -29,11 +29,11 @@ public class UserAccount extends javax.swing.JFrame {
     }
 
     private void init() {
-        setLocation(410,300);
+        setLocation(410, 300);
         uId = userDao.getUserID(UserDashboard.userEmail.getText());
         value = userDao.getUserValue(uId);
         setValue();
-
+        jPasswordField1.setText(String.valueOf(Login.jPasswordField1.getPassword()));
     }
 
     public boolean isEmpty() {
@@ -76,7 +76,6 @@ public class UserAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Địa chỉ không được bỏ trống");
             return false;
         }
-     
 
         return true;
     }
@@ -93,15 +92,15 @@ public class UserAccount extends javax.swing.JFrame {
         jTextField7.setText(value[8]);
 
     }
-    
-    private void setDefault(){
+
+    private void setDefault() {
         UserDashboard.jPanel11.setBackground(primaryColor);
         UserDashboard.jPanel12.setBackground(primaryColor);
         UserDashboard.jLabel15.setForeground(textPrimaryColor);
         UserDashboard.jLabel16.setVisible(true);
         UserDashboard.jLabel25.setVisible(false);
     }
-    
+
     // Kiểm tra trước khi cập nhật
     private boolean check() {
         String newEmail = jTextField3.getText();
@@ -421,7 +420,7 @@ public class UserAccount extends javax.swing.JFrame {
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         setVisible(false);
         setDefault();
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel9MouseClicked
 
@@ -477,17 +476,15 @@ public class UserAccount extends javax.swing.JFrame {
                 String ans = jTextField5.getText();
                 String address1 = jTextField6.getText();
                 String address2 = jTextField7.getText();
+
+                userDao.update(id, username, email, password, phone, seq, ans, address1, address2);               
+                System.exit(0);
                 
-                userDao.update(id, username, email, ans, phone, seq, ans, address1, address2);
-                this.dispose();
-                setDefault();
+                
             }
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;

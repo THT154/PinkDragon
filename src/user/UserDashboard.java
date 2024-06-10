@@ -4,20 +4,17 @@
  */
 package user;
 
-import static Supplier.SupplierDashboard.jLabel12;
-import static Supplier.SupplierDashboard.jLabel13;
-import static Supplier.SupplierDashboard.jLabel19;
-import static Supplier.SupplierDashboard.jPanel10;
-import static Supplier.SupplierDashboard.jPanel9;
+
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import Client.Client;
 
 /**
  *
  * @author nghia123
  */
 public class UserDashboard extends javax.swing.JFrame {
-    
+
     Color selectioncolor = new Color(34, 48, 62);
     Color sideColor = new Color(64, 194, 150);
     Color textSelectioncolor = new Color(255, 255, 255);
@@ -62,6 +59,11 @@ public class UserDashboard extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -265,6 +267,42 @@ public class UserDashboard extends javax.swing.JFrame {
 
         jPanel3.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 200, 30));
 
+        jPanel7.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel13.setBackground(new java.awt.Color(0, 102, 102));
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel7.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel20.setText("Report");
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 130, 30));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/report .png"))); // NOI18N
+        jPanel7.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 30));
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/report .png"))); // NOI18N
+        jPanel7.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 30));
+
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 200, 30));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 200, 770));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -320,11 +358,11 @@ public class UserDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jPro)
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jPurchase)
-                        .addComponent(jLabel17)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jPro)
-                            .addComponent(jLabel11)))
+                        .addComponent(jLabel17))
                     .addComponent(jCat))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
@@ -421,6 +459,24 @@ public class UserDashboard extends javax.swing.JFrame {
         account.pack();
     }//GEN-LAST:event_jLabel15MouseClicked
 
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Confirmation", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            jPanel7.setBackground(selectioncolor);
+            jPanel13.setBackground(sideColor);
+            jLabel20.setForeground(textSelectioncolor);
+            jLabel21.setVisible(false);
+            jLabel26.setVisible(true);
+            
+            Client client = new Client();
+            client.startClient();
+            UserReport userReport = new UserReport();
+            userReport.setVisible(true);
+            userReport.pack();
+        }
+    }//GEN-LAST:event_jLabel20MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -470,9 +526,12 @@ public class UserDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     public static javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel20;
+    public static javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     public static javax.swing.JLabel jLabel24;
     public static javax.swing.JLabel jLabel25;
+    public static javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -481,11 +540,13 @@ public class UserDashboard extends javax.swing.JFrame {
     public static javax.swing.JPanel jPanel10;
     public static javax.swing.JPanel jPanel11;
     public static javax.swing.JPanel jPanel12;
+    public static javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public static javax.swing.JPanel jPanel5;
     public static javax.swing.JPanel jPanel6;
+    public static javax.swing.JPanel jPanel7;
     public static javax.swing.JPanel jPanel8;
     public static javax.swing.JPanel jPanel9;
     public static javax.swing.JLabel jPro;

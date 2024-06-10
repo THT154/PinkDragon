@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class MyConnection {
 
     public static final String username = "root";
-    public static final String password = "0976794934t";
+    public static final String password = "0848197699t";
     public static final String url = "jdbc:mysql://localhost:3306/online_shopping?useSSL=false";
     public static final String driver = "com.mysql.cj.jdbc.Driver";
 

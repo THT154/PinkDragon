@@ -474,6 +474,33 @@ public class ManageUsers extends javax.swing.JFrame {
 
         return true;
     }
+    
+     private boolean check() {
+        String newEmail = jTextField30.getText();
+        String newPhone = jTextField35.getText();
+        String oldEmail = model.getValueAt(rowIndex, 2).toString();
+        String oldPhone = model.getValueAt(rowIndex, 4).toString();
+
+        if (newEmail.equals(oldEmail) && newPhone.equals(oldPhone)) {
+            return false;
+        } else {
+            if (!newEmail.equals(oldEmail)) {
+                boolean x = user.isEmailExist(newEmail);
+                if (x) {
+                    JOptionPane.showMessageDialog(null, "Email đã tồn tại");
+                }
+                return x;
+            }
+            if (!newPhone.equals(oldPhone)) {
+                boolean x = user.isPhoneExist(newPhone);
+                if (x) {
+                    JOptionPane.showMessageDialog(null, "Số điện thoại đã tồn tại");
+                }
+                return x;
+            }
+        }
+        return false;
+    }
 
     private void Reset() {
         jTextField28.setText("");
@@ -612,67 +639,6 @@ public class ManageUsers extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnUpdate3ActionPerformed
 
-    private boolean check() {
-        String newEmail = jTextField30.getText();
-        String newPhone = jTextField35.getText();
-        String oldEmail = model.getValueAt(rowIndex, 2).toString();
-        String oldPhone = model.getValueAt(rowIndex, 4).toString();
-
-        if (newEmail.equals(oldEmail) && newPhone.equals(oldPhone)) {
-            return false;
-        } else {
-            if (!newEmail.equals(oldEmail)) {
-                boolean x = user.isEmailExist(newEmail);
-                if (x) {
-                    JOptionPane.showMessageDialog(null, "Email đã tồn tại");
-                }
-                return x;
-            }
-            if (!newPhone.equals(oldPhone)) {
-                boolean x = user.isPhoneExist(newPhone);
-                if (x) {
-                    JOptionPane.showMessageDialog(null, "Số điện thoại đã tồn tại");
-                }
-                return x;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(ManageUsers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(ManageUsers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(ManageUsers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(ManageUsers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new ManageUsers().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear3;
