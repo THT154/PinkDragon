@@ -1,10 +1,10 @@
 package admin;
 
+import Client.Client;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import user.Login;
-import static user.UserDashboard.userEmail;
-
+import Client.Client;
 /**
  *
  * @author nghia123
@@ -574,7 +574,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         jPanel26.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
-        jLabel33.setText("Report");
+        jLabel33.setText("Notification");
         jLabel33.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel33MouseClicked(evt);
@@ -877,15 +877,17 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
         // TODO add your handling code here:
-
+       
         jPanel26.setBackground(selectioncolor);
         jPanel27.setBackground(sideColor);
         jLabel33.setForeground(textSelectioncolor);
         jLabel20.setVisible(false);
         jLabel56.setVisible(true);
-        AdminReport adminReport = new AdminReport();
+        AdminNotification adminReport = new AdminNotification();
         adminReport.setVisible(true);
         adminReport.pack();
+        
+        
 
     }//GEN-LAST:event_jLabel33MouseClicked
 

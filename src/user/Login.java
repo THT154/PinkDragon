@@ -1,5 +1,6 @@
 package user;
 
+import Client.Client;
 import Dao.MD5;
 import Supplier.SupplierDashboard;
 import admin.AdminDashboard;
@@ -18,7 +19,6 @@ public class Login extends javax.swing.JFrame {
 
     private ButtonGroup buttonGroup = new ButtonGroup();
     Statistics statistics = new Statistics();
-    
 
     /**
      * Creates new form Login
@@ -26,6 +26,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         init();
+
     }
 
     private void init() {
@@ -343,6 +344,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
 
         if (isEmpty()) {
             String email = jTextField1.getText();
@@ -416,6 +418,8 @@ public class Login extends javax.swing.JFrame {
 
         }
 
+        Client client = new Client();
+        client.startClient();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

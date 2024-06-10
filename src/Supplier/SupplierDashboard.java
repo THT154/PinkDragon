@@ -301,7 +301,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jPanel13.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel22.setText("Report");
+        jLabel22.setText("Notification");
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel22MouseClicked(evt);
@@ -446,7 +446,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jLabel22.setForeground(textSelectioncolor);
         jLabel20.setVisible(false);
         jLabel17.setVisible(true);
-        SupplierReport supplierReport = new SupplierReport();
+        SupplierNotification supplierReport = new SupplierNotification();
         supplierReport.setVisible(true);
         supplierReport.pack();
         

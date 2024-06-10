@@ -1,21 +1,19 @@
 package Server;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-        
+
 public class ClientHandler implements Runnable {
 
     private Socket mySocket;
-    private String id;
     private Server server;
     private InputStream input;
     private OutputStream output;
 
-    public ClientHandler(Socket mySocket, String id, Server server) {
-
+    public ClientHandler(Socket mySocket, Server server) {
         this.mySocket = mySocket;
-        this.id = id;
         this.server = server;
         try {
             this.input = mySocket.getInputStream();
@@ -23,17 +21,14 @@ public class ClientHandler implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void sendMessage(String message) {
-
         try {
             output.write(message.getBytes());
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -43,7 +38,7 @@ public class ClientHandler implements Runnable {
             int byteRead;
             while ((byteRead = input.read(buffer)) != -1) {
                 String message = new String(buffer, 0, byteRead);
-                server.broadcastMessage(this.id + " : " + message);
+                server.broadcastMessage("Thông báo từ quản trị viên", message);
             }
         } catch (Exception e) {
             e.printStackTrace();

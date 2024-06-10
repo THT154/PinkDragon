@@ -4,10 +4,10 @@
  */
 package user;
 
-
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import Client.Client;
+import Client.MainClient;
 
 /**
  *
@@ -286,7 +286,7 @@ public class UserDashboard extends javax.swing.JFrame {
         jPanel7.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel20.setText("Report");
+        jLabel20.setText("Notification");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel20MouseClicked(evt);
@@ -461,20 +461,17 @@ public class UserDashboard extends javax.swing.JFrame {
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
-        int result = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Confirmation", JOptionPane.OK_CANCEL_OPTION);
-        if (result == JOptionPane.OK_OPTION) {
-            jPanel7.setBackground(selectioncolor);
-            jPanel13.setBackground(sideColor);
-            jLabel20.setForeground(textSelectioncolor);
-            jLabel21.setVisible(false);
-            jLabel26.setVisible(true);
-            
-            Client client = new Client();
-            client.startClient();
-            UserReport userReport = new UserReport();
-            userReport.setVisible(true);
-            userReport.pack();
-        }
+
+        jPanel7.setBackground(selectioncolor);
+        jPanel13.setBackground(sideColor);
+        jLabel20.setForeground(textSelectioncolor);
+        jLabel21.setVisible(false);
+        jLabel26.setVisible(true);
+
+        UserNotification userReport = new UserNotification();
+        userReport.setVisible(true);
+        userReport.pack();
+
     }//GEN-LAST:event_jLabel20MouseClicked
 
     /**
